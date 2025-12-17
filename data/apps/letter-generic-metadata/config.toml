@@ -1,0 +1,144 @@
+
+[app]
+name="letter-generic-metadata"
+title="Letter-generic-metadata Editor"
+def_prof="clarin.eu:cr1:p_1761816151556"
+cmdi_version="1.2"
+
+[app.access]
+users="./htp" # location of the htpassword file, i.e. the "users" and "owner"
+read="users" # or "users" or "owner"
+write="users" # or "users" or "owner"
+
+[app.prof.letter]
+prof="clarin.eu:cr1:p_1761816151556"
+title="string((/cmd:CMD/cmd:Components//cmdp:*[empty(cmdp:*)][normalize-space(text())!=''])[1])"
+
+# LETTERS
+[app.prof.letter.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
+        
+[app.prof.letter.list.first]
+xpath="string((/cmd:CMD/cmd:Components//cmdp:*[empty(cmdp:*)][normalize-space(text())!=''])[1])"
+label="NodegoatId"
+sort="true"# or "false"
+filter="true"# or "'select'"
+
+#[app.prof.letter.list.title]
+#xpath="string(//cmdp:SourceBasicMetadata/cmdp:nameOrTitle)"
+#label="Letter title"
+#sort="true"
+#filter="true"
+
+[app.prof.letter.list.sender]
+xpath="string(//cmdp:Sender/cmdp:SenderObservation/cmdp:senderAsText)"
+label="SenderNameAsWritten"
+sort="true"
+filter="'select'"
+
+[app.prof.letter.list.receiver]
+xpath="string(//cmdp:Receiver/cmdp:ReceiverObservation/cmdp:receiverAsText)"
+label="ReceiverNameAsWritten"
+sort="true"
+filter="'select'"
+
+[app.prof.letter.list.letterDate]
+xpath="string(//cmdp:DateSent/cmdp:DateObservation/cmdp:dateAsWritten)"
+label="DateSent"
+sort="true"
+filter="'select'"
+
+# PERSON RECONSTRUCTIONS
+
+[app.prof.person]
+prof="clarin.eu:cr1:p_1758888743558"
+label_en="person-reconstruction"
+label_plural_en="person-reconstructions"
+title="string((//cmdp:fullName[@xml:lang='en'],//cmdp:fullName)[1])"
+#html="person-toHTML.xsl"
+
+[app.prof.person.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
+#
+[app.prof.person.list.name]
+xpath="string((//cmdp:fullName[@xml:lang='en'],//cmdp:fullName)[1])"
+label="full name"
+sort="true"
+filter="true"
+#
+[app.prof.person.list.dateBirth]
+xpath="string(//cmdp:PersonData/cmdp:BirthDate/cmdp:DateReconstruction/cmdp:dateStart)"
+label="DateBirth"
+sort="true"
+filter="'select'"
+
+[app.prof.person.list.dateDeath]
+xpath="string(//cmdp:PersonData/cmdp:DeathDate/cmdp:DateReconstruction/cmdp:dateStart)"
+label="DateDeath"
+sort="true"
+filter="'select'"
+#
+##[app.prof.person.list.type]
+##xpath="string(//cmdp:Identification/cmdp:type)"
+##label="type"
+##sort="true"
+##filter="'select'"
+#
+#[app.prof.person.list.status]
+#xpath="string(//cmdp:status)"
+#label="status"
+#sort="true"
+#filter="'select'"
+#
+#[app.prof.person.list.identifier1]
+#xpath="string((//cmdp:identifierType[@xml:lang='en'],//cmdp:identifierLabel)[1])"
+#label="LocalId"
+#sort="true"
+#filter="'select'"
+
+[app.prof.person.list.identifier2]
+xpath="string((//cmdp:identifierType[@xml:lang='en'],//cmdp:identifierLabel)[2])"
+label="WikidataId"
+sort="true"
+filter="'select'"
+#
+# PLACE RECONSTRUCTIONS
+
+[app.prof.place]
+prof="clarin.eu:cr1:p_1761816151568"
+label_en="place-reconstruction"
+label_plural_en="place-reconstructions"
+title="string((//cmdp:authorisedForm[@xml:lang='en'],//cmdp:authorisedForm)[1])"
+#html="person-toHTML.xsl"
+
+[app.prof.place.list.nr]
+xpath="replace(//*:MdSelfLink,'unl://','')"
+label="nr"
+sort="true"
+filter="true"
+
+# HOOKS
+
+[app.hooks.action.persons]
+level="app" # TODO: put on person profile
+label="persons"
+endpoint="persons"
+hook="persons"
+
+[app.hooks.action.letters]
+level="app" # TODO: put on letter profile
+label="letters"
+endpoint="letters"
+hook="letters"
+
+[app.hooks.action.edges]
+level="app" # TODO: put on letters profile
+label="edges"
+endpoint="edges"
+hook="edges"
