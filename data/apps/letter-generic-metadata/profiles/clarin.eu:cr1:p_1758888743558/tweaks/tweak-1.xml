@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><ComponentSpec xmlns:clariah="http://www.clariah.eu/" xmlns:cue="http://www.clarin.eu/cmd/cues/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" isProfile="true" CMDVersion="1.2" CMDOriginalVersion="1.2" xsi:noNamespaceSchemaLocation="https://infra.clarin.eu/CMDI/1.x/xsd/cmd-component.xsd">
+    <Header>
+        <ID>clarin.eu:cr1:p_1758888743558</ID>
+        <Name>Person</Name>
+        <Description>This is a test profile for Person-related data according to the PiCo model. </Description>
+        <Status>development</Status>
+    </Header>
+    <Component name="Person">
+        <Documentation>A Person is a human being whose individual existence can somehow be documented. Container class for Person observation and Person reconstruction.</Documentation>
+        <Component name="Identifier">
+            <Documentation>A unique identifier of the resource being described or cataloged. Usage note: The identifier is a text string which is assigned to the resource to provide an unambiguous reference within a particular context. The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. </Documentation>
+            <Element name="identifierType">
+                
+            </Element>
+            <Element name="identifierLabel">
+                <Documentation>Add the preferred label for this identifier.</Documentation>
+            </Element>
+            <Element name="identifierUrl">
+                <Documentation>The complete URL if the identifier has a web locator. If it is OpenStreetMaps: Enter the URI from OpenStreetMap API. You can search directly in OpenStreetMaps and paste the URI here. The URI has to have this format, for example: https://www.openstreetmap.org/relation/214885 (note the type in the middle: relation, node, way)</Documentation>
+            </Element>
+            <Element name="schemeAgency">
+                <Documentation>The name of the external source/knowledge base used to get the identifier. </Documentation>
+                
+            </Element>
+        </Component>
+        <Component name="PersonName">
+            <Element name="fullName">
+                <Documentation>Literal name designates a full personal name. This property may only be left blank if a person's name was unknown or if a person was unnamed (e.g. a child that died shortly after being born), in which cases the property pnv:nameSpecification should state "unknown" or "unnamed". (Note -not in PiCo-: if you are entering the name of a person observation, use this element to enter the name as it appears in the source.</Documentation>
+            </Element>
+            <Element name="givenName">
+                <Documentation>A Given name designates the name(s) given to someone at birth or any other name-giving event. In the U.S., the first name of a Person.</Documentation>
+            </Element>
+            <Element name="familyName">
+                <Documentation>Family name. In the U.S., the last name of a Person.</Documentation>
+            </Element>
+        </Component>
+        <Component name="PersonData">
+            <Documentation>A Person reconstruction is the result of modelling one or multiple PersonObservation(s) into a single resource.</Documentation>
+            <Component name="BirthDate">
+                <Component name="DateReconstruction">
+                    <Documentation>Standard: https://knaw.sharepoint.com/:b:/r/sites/PRJ-DRE-Joegoslavie/Gedeelde%20documenten/General/DRE%20Database%20-%20shared%20with%20HuC/NEN-ISO%208601-2_2019%20en%20(1).pdf?csf=1&amp;web=1&amp;e=ZENSyh</Documentation>
+                    <Element name="dateStart">
+                        <Documentation>Use this field to enter a specific date (if there is no date range), or the beginning of a date range . Select from the calendar. Adapt if necessary following this pattern: YYYY-MM-DD. If there are uncertainties, use these two uncertainty patterns (here with an example): PATTERN1: 2025-??-17 (use "?" to replace uncertain values, here the day is known to be the 17th, the year is 2025 but the month is unknown). PATTERN2: ~2025-~07 (use "~" to indicate approximate values, here it means that both the year and the month are approximate values). COMBINED example: ~2025-??-17.</Documentation>
+                    </Element>
+                    <Element name="dateEnd">
+                        <Documentation>Use this field to enter the end date if there was a range. Follow the same instructions as for dateStart.</Documentation>
+                    </Element>
+                    <Element name="calendar">
+                        
+                    </Element>
+                    <Element name="noteDate">
+                        <Documentation>:Add any clarifying notes related to the dates. These notes may be for internal or external use (t.b.d.)</Documentation>
+                    </Element>
+                    <Component name="Confidence">
+                        <Element name="confidenceValue">
+                            <Documentation>How confident you (or an algorithm) are of an observation (what you observed (read) in the source), or of a reconstruction. Reflect the uncertainties and ambiguities of the inferred observation (or reconstruction) by choosing one of the values.</Documentation>
+                            
+                        </Element>
+                        <Element name="confidenceScore"><!--cues--></Element>
+                    </Component>
+                </Component>
+            </Component>
+            <Component name="DeathDate">
+                <Component name="DateReconstruction">
+                    <Documentation>Standard: https://knaw.sharepoint.com/:b:/r/sites/PRJ-DRE-Joegoslavie/Gedeelde%20documenten/General/DRE%20Database%20-%20shared%20with%20HuC/NEN-ISO%208601-2_2019%20en%20(1).pdf?csf=1&amp;web=1&amp;e=ZENSyh</Documentation>
+                    <Element name="dateStart">
+                        <Documentation>Use this field to enter a specific date (if there is no date range), or the beginning of a date range . Select from the calendar. Adapt if necessary following this pattern: YYYY-MM-DD. If there are uncertainties, use these two uncertainty patterns (here with an example): PATTERN1: 2025-??-17 (use "?" to replace uncertain values, here the day is known to be the 17th, the year is 2025 but the month is unknown). PATTERN2: ~2025-~07 (use "~" to indicate approximate values, here it means that both the year and the month are approximate values). COMBINED example: ~2025-??-17.</Documentation>
+                    </Element>
+                    <Element name="dateEnd">
+                        <Documentation>Use this field to enter the end date if there was a range. Follow the same instructions as for dateStart.</Documentation>
+                    </Element>
+                    <Element name="calendar">
+                        
+                    </Element>
+                    <Element name="noteDate">
+                        <Documentation>:Add any clarifying notes related to the dates. These notes may be for internal or external use (t.b.d.)</Documentation>
+                    </Element>
+                    <Component name="Confidence">
+                        <Element name="confidenceValue">
+                            <Documentation>How confident you (or an algorithm) are of an observation (what you observed (read) in the source), or of a reconstruction. Reflect the uncertainties and ambiguities of the inferred observation (or reconstruction) by choosing one of the values.</Documentation>
+                            
+                        </Element>
+                        <Element name="confidenceScore"><!--cues--></Element>
+                    </Component>
+                </Component>
+            </Component>
+        </Component>
+    </Component>
+</ComponentSpec>
