@@ -1,7 +1,7 @@
 
 [app]
-name="letter-generic-metadata"
-title="Letter-generic-metadata Editor"
+name="letter-voetius-metadata"
+title="Letter-voetius-metadata Editor"
 def_prof="clarin.eu:cr1:p_1761816151556"
 cmdi_version="1.2"
 
@@ -21,11 +21,11 @@ label="nr"
 sort="true"
 filter="true"
         
-[app.prof.letter.list.first]
-xpath="string((/cmd:CMD/cmd:Components//cmdp:*[empty(cmdp:*)][normalize-space(text())!=''])[1])"
-label="NodegoatId"
-sort="true"# or "false"
-filter="true"# or "'select'"
+#[app.prof.letter.list.first]
+#xpath="string((/cmd:CMD/cmd:Components//cmdp:*[empty(cmdp:*)][normalize-space(text())!=''])[1])"
+#label="NodegoatId"
+#sort="true"# or "false"
+#filter="true"# or "'select'"
 
 #[app.prof.letter.list.title]
 #xpath="string(//cmdp:SourceBasicMetadata/cmdp:nameOrTitle)"
@@ -102,11 +102,11 @@ filter="'select'"
 #sort="true"
 #filter="'select'"
 
-[app.prof.person.list.identifier2]
-xpath="string((//cmdp:identifierType[@xml:lang='en'],//cmdp:identifierLabel)[2])"
-label="WikidataId"
-sort="true"
-filter="'select'"
+#[app.prof.person.list.identifier2]
+#xpath="string((//cmdp:identifierType[@xml:lang='en'],//cmdp:identifierLabel)[2])"
+#label="WikidataId"
+#sort="true"
+#filter="'select'"
 #
 # PLACE RECONSTRUCTIONS
 
